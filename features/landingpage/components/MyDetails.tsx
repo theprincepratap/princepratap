@@ -13,7 +13,7 @@ const MyDetails = () => {
       emptyRgba: "rgba(239, 68, 68, 0.12)",
       halfRgba: "rgba(239, 68, 68, 0.40)",
       fullRgba: "rgba(239, 68, 68, 0.80)",
-      image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80", // Chatbot/AI
+      image: "https://images.unsplash.com/photo-1694375073673-fc3f0b706d8c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Chatbot/AI
     },
     {
       title: "Image Classifier",
@@ -24,7 +24,7 @@ const MyDetails = () => {
       emptyRgba: "rgba(249, 115, 22, 0.12)",
       halfRgba: "rgba(249, 115, 22, 0.40)",
       fullRgba: "rgba(249, 115, 22, 0.80)",
-      image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80", // Neural network
+      image: "https://media.istockphoto.com/id/2172166296/photo/a-seminar-and-workshop-on-coding-to-enhance-system-efficiency.jpg?s=2048x2048&w=is&k=20&c=qlzMInRD_zw9vI1E1TkCHW0Wcwe1uof8kMMQIoTHmGA=", // Neural network
     },
     {
       title: "Sentiment Analysis API",
@@ -35,7 +35,7 @@ const MyDetails = () => {
       emptyRgba: "rgba(168, 85, 247, 0.12)",
       halfRgba: "rgba(168, 85, 247, 0.40)",
       fullRgba: "rgba(168, 85, 247, 0.80)",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80", // API/analysis
+      image: "https://images.unsplash.com/photo-1690585703267-de31ea667ef0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // API/analysis
     },
     {
       title: "Object Detection System",
@@ -46,7 +46,7 @@ const MyDetails = () => {
       emptyRgba: "rgba(34, 197, 94, 0.12)",
       halfRgba: "rgba(34, 197, 94, 0.40)",
       fullRgba: "rgba(34, 197, 94, 0.80)",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80", // Surveillance/camera
+      image: "https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?q=80&w=996&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Surveillance/camera
     },
     {
       title: "Recommendation Engine",
@@ -69,7 +69,7 @@ const MyDetails = () => {
       className='pb-4 pt-10'
     >
       <div className="flex justify-center flex-col mt-10 mb-8 md:mt-30 md:mb-15">
-        <ShimmerText className='text-4xl md:text-6xl' text={"PROJECTS"} />
+        <ShimmerText className='text-4xl md:text-6xl' text={"WORK"} />
       </div>
       <div className='flex flex-wrap justify-center gap-6 px-4'>
         {projects.map((item, i) => (

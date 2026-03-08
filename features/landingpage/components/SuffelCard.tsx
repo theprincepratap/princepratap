@@ -8,29 +8,27 @@ import React, { useState } from 'react'
 const SuffelCard = () => {
   const [cIn, setcIn] = useState(0);
      const images = [
-    {
-      src: "https://i.pinimg.com/736x/c0/8a/80/c08a8026aba7b3e8e6d905b2416a56be.jpg",
-      alt: "FAV SWEET",
+         {
+      src: "https://i.pinimg.com/1200x/b0/c2/be/b0c2be636f602b8b21a421d6c4619b4b.jpg",
+      alt: "FAV Teacher",
     },
     {
-      src: "https://i.pinimg.com/736x/7e/4c/5a/7e4c5a682427c8a47e2c7a46365763f7.jpg",
-      alt: "FAV CITY",
+      src: "https://i.pinimg.com/736x/b1/fc/73/b1fc734e8ff725e3ad8f16db7c432222.jpg",
+      alt: "FAV DOST",
     },
     {
-      src: "https://i.pinimg.com/736x/8e/47/d0/8e47d0bd73dafa1d339cb2b2b13c2b7e.jpg",
-      alt: "FAV COLOR",
+      src: "https://i.pinimg.com/736x/13/8d/5f/138d5f4490e0f1857ead96d053645efb.jpg",
+      alt: "FAV QUOTE",
     },
+ 
     {
-      src: "	https://i.pinimg.com/736x/59/ee/40/59ee4047d303d7ccf7d9cd16fc3d864c.jpg",
+      src: "https://i.pinimg.com/736x/08/f0/a1/08f0a1410579c711e89a2382b85e5eb7.jpg",
       alt: "FAV HOBBY",
     }, {
-      src: "https://i.pinimg.com/1200x/ec/da/d9/ecdad9e6f73970d0ba23ddc7ebc9128d.jpg",
+      src: "https://i.pinimg.com/736x/ff/07/b8/ff07b8a21e6fa9e19a9d515c8de5d403.jpg",
       alt: "MY BEHAVIOUR",
     },
-     {
-      src: "https://i.pinimg.com/736x/77/4f/1b/774f1bd62a8b721ae3c62dc8cb0a53d6.jpg",
-      alt: "FAV PLAYER",
-    },
+  
     // ... more images 	
   ];
   return (

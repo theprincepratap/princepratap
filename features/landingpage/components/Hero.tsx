@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useState } from "react";
 import Image from "next/image";
 import {
   motion,
@@ -42,9 +42,20 @@ const socials = [
       </svg>
     ),
   },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/itsprincepratap",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.242-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.414 3.678 1.395c-.981.981-1.264 2.093-1.323 3.374C2.013 5.668 2 6.077 2 12c0 5.923.013 6.332.072 7.613.059 1.281.342 2.393 1.323 3.374.981.981 2.093 1.264 3.374 1.323C8.332 23.987 8.741 24 12 24c3.259 0 3.668-.013 4.948-.072 1.281-.059 2.393-.342 3.374-1.323.981-.981 1.264-2.093 1.323-3.374.059-1.281.072-1.69.072-7.613 0-5.923-.013-6.332-.072-7.613-.059-1.281-.342-2.393-1.323-3.374-.981-.981-2.093-1.264-3.374-1.323C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+      </svg>
+    ),
+  },
 ];
 import { cn } from "@/lib/utils";
 import { bodoniModa, inter, geist } from "@/lib/fonts";
+
+import { Skiper62 } from "@/components/ui/skiper-ui/skiper62";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,6 +92,53 @@ function NoiseOverlay() {
     </svg>
   );
 }
+
+// ── Menu Dropdown ──────────────────────────────────────────────────────────
+const sections = [
+  { label: "Home", href: "/" },
+  { label: "Work", href: "#work" },
+  { label: "Contributions", href: "#contributions" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
+
+const MenuDropdown = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="relative">
+      <motion.button
+        aria-label="Open menu"
+        className={cn(
+          "flex items-center gap-2.5 px-5 py-2.5 rounded-full",
+          "border border-white/12 bg-white/3 backdrop-blur-sm",
+          "text-white/50 text-[11px] tracking-[0.25em] uppercase",
+          inter.className
+        )}
+        whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.07)", borderColor: "rgba(255,255,255,0.24)", color: "rgba(255,255,255,0.82)" }}
+        whileTap={{ scale: 0.96 }}
+        transition={{ duration: 0.18 }}
+        onClick={() => setOpen((v) => !v)}
+      >
+        <Menu className="w-3.5 h-3.5" strokeWidth={1.5} />
+        <span>Menu</span>
+      </motion.button>
+      {open && (
+        <div className="absolute right-0 mt-2 w-48 bg-[#181818] border border-white/10 rounded-lg shadow-lg z-50 flex flex-col">
+          {sections.map((section) => (
+            <a
+              key={section.label}
+              href={section.href}
+              className="px-5 py-3 text-white/80 hover:bg-white/10 hover:text-white transition text-sm border-b border-white/5 last:border-b-0"
+              onClick={() => setOpen(false)}
+            >
+              {section.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 // ── Hero ──────────────────────────────────────────────────────────────────────
 
@@ -181,21 +239,8 @@ const Hero = () => {
           <span className="text-white/35 text-[13px] font-light tracking-[0.18em] uppercase">Kumar</span>
         </div>
 
-        <motion.button
-          aria-label="Open menu"
-          className={cn(
-            "flex items-center gap-2.5 px-5 py-2.5 rounded-full",
-            "border border-white/12 bg-white/3 backdrop-blur-sm",
-            "text-white/50 text-[11px] tracking-[0.25em] uppercase",
-            inter.className
-          )}
-          whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.07)", borderColor: "rgba(255,255,255,0.24)", color: "rgba(255,255,255,0.82)" }}
-          whileTap={{ scale: 0.96 }}
-          transition={{ duration: 0.18 }}
-        >
-          <Menu className="w-3.5 h-3.5" strokeWidth={1.5} />
-          <span>Menu</span>
-        </motion.button>
+        {/* Menu Dropdown */}
+        <MenuDropdown />
       </motion.header>
 
       {/* ── BACKGROUND GIANT TYPOGRAPHY ────────────────────────────────────── */}
@@ -259,6 +304,10 @@ const Hero = () => {
             whileHover={{ scale: 1.05, backgroundColor: "#e6e6e6" }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.18 }}
+            onClick={() => {
+              const el = document.querySelector("#work");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             View Work
           </motion.button>
@@ -268,6 +317,9 @@ const Hero = () => {
             whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.28)", color: "rgba(255,255,255,0.82)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.18 }}
+            onClick={() => {
+              window.location.href = "mailto:theprincepratap@gmail.com";
+            }}
           >
             Contact
           </motion.button>
@@ -396,6 +448,10 @@ const Hero = () => {
             Scroll
           </span>
         </motion.div>
+        {/* Skiper62 in lower middle */}
+        <div className="absolute left-1/2 bottom-8 transform -translate-x-1/2 z-30 flex items-center justify-center">
+          <Skiper62 />
+        </div>
       </motion.footer>
     </div>
   );

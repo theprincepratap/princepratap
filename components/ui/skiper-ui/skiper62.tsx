@@ -22,16 +22,15 @@ const useLoop = (delay = 2000) => {
 export { useLoop };
 
 
-const array =["Tik-Tik uno",
-      "Tik-Tik dos",
-      "Tik-Tik tres",
-      "Tik-Tik cuatro",
-      "Tik-Tik cinco",
-      "Tik-Tik seis",
-      "Tik-Tik siete",
-      "Tik-Tik ocho",
-      "Tik-Tik nueve",
-      "Tik-Tik diez",]
+const array =[
+      "Developer",
+      "Editor",
+      "Content Creator",
+      "Fast Learner",
+      "Coder",
+      "Degianer",
+      "Ai Engineer",
+]
 interface para{ 
   arr?:string[];
 }
@@ -62,7 +61,7 @@ const Skiper62 = ({arr=array}:para) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: "-100%" }}
           transition={{ duration: 0.3 }}
-          className={`bordr text-[140px] ${bodoniModa.className} whitespace-nowrap text-center`}
+          className={`bordr text-[20px] text-white ${bodoniModa.className} whitespace-nowrap text-center`}
         >
           {currentItem}
         </motion.h1>
