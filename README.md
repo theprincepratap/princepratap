@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+Built with ❤️ for organizing the web
+## 🚀 Portfolio Project: Skipper
 
-First, run the development server:
+This is a modern portfolio web application built with Next.js, React, and Tailwind CSS. It showcases interactive UI components, smooth animations, and a clean design for personal branding and project display.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 👤 Author
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Prince Pratap**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Platform | Link |
+|---|---|
+| 📸 Instagram | [@itsprincepratap](https://www.instagram.com/itsprincepratap) |
+| 🐙 GitHub | [@theprincepratap](https://github.com/theprincepratap) |
+| 💼 LinkedIn | [thprincepratap](https://www.linkedin.com/in/thprincepratap/) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js 16
+- React 19
+- Tailwind CSS 4
+- TypeScript 5
+- Framer Motion
+- GSAP
+- Swiper.js
+- Lucide Icons
+- Radix UI
+- Custom UI Components
+- ESLint & Prettier
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💛 Support
 
-## Deploy on Vercel
+If this project helped you, consider buying me a coffee:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**[💰 PayPal — paypal.me/theprincepratap](https://www.paypal.com/paypalme/theprincepratap)**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 License
+
+MIT © Prince Pratap
+
+---
