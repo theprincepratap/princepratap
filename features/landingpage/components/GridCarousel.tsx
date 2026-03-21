@@ -10,7 +10,7 @@ const GridCarousel = () => {
   "https://i.ibb.co/C556xQpf/img2.jpg",
   "https://i.ibb.co/BHBMmwmr/ph3.png",
   "https://i.ibb.co/BVD0jLXK/IMG-6921.jpg",
-  "https://i.ibb.co/ZphTXdsC/BEF8-C176-174-F-4-E52-A8-D4-10519-E4-E29-D5.png",
+  "https://i.ibb.co/nM13FWY3/hackthon.png",
  "https://i.ibb.co/N2sRGwmv/img4.jpg",
   "https://i.ibb.co/pvX8S80B/img1.jpg",
   "https://i.ibb.co/xqmdBD2y/img5.jpg",
