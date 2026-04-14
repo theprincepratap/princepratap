@@ -8,7 +8,7 @@ const WorkSection = () => {
   const workCards = [
     {
       id: 1,
-      image: "https://i.ibb.co/nqM9s8rw/img.jpg",
+      image: "https://i.ibb.co/6czGrjLr/IMG-7679.jpg",
       alt: "Project 1"
     },
     {
