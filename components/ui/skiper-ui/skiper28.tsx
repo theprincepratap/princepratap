@@ -31,7 +31,7 @@ const Skiper28 = ({text,arr}:para) => {
   return (
       <div
         ref={targetRef}
-        className="relative z-0 h-[300vh] w-screen bg-black text-white overflow-hidden"
+        className="relative z-0 h-[300vh] w-full bg-black text-white overflow-hidden"
       >
         {/* <div className="absolute left-1/2 top-[10%] grid -translate-x-1/2 content-start justify-items-center gap-6 text-center text-black">
           <span className="relative max-w-[12ch] text-xs uppercase leading-tight opacity-40 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:from-white after:to-black after:content-['']">

@@ -9,7 +9,7 @@ import XCards from "./components/XCards";
 
 const MainLandinPage = () => {
   return (
-    <div className="w-screen">
+    <div className="w-full overflow-x-hidden">
       <section>
         <Hero />
       </section>

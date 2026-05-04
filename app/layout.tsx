@@ -29,7 +29,7 @@ export default function RootLayout({
     //         background: "radial-gradient(125% 125% at 50% 90%, #000000 40%, #0d1a36 100%)",
     //       }}
 
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <div className="relative">
           {children}

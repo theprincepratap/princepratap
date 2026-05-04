@@ -63,7 +63,7 @@ const Skiper30 = ({img=image}:{img?:string[]}) => {
             background: "radial-gradient(125% 125% at 50% 90%, #000000 40%, #0d1a36 100%)",
           }}
    
-    className="w-full   text-black">
+    className="w-full overflow-hidden text-black">
       <div className="font-geist flex h-[80vh] items-center justify-center gap-2">
 
           {/* <span className="relative text-yellow-300 max-w-[12ch] text-xs uppercase leading-tight opacity-40 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:from-white after:to-black after:content-['']">
