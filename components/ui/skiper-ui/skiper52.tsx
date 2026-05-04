@@ -12,54 +12,63 @@ import { cn } from "@/lib/utils";
 const Skiper52 = () => {
   const images = [
     {
-      src: "/images/x.com/13.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-      code: "# 23",
+      src: "https://picsum.photos/600/600?random=1",
+      alt: "AI Project 1",
+      code: "AI & ML",
+      link: "#",
     },
     {
-      src: "/images/x.com/32.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-      code: "# 23",
+      src: "https://picsum.photos/600/600?random=2",
+      alt: "ML Project 2",
+      code: "Machine Learning",
+      link: "#",
     },
     {
-      src: "/images/x.com/20.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-      code: "# 23",
+      src: "https://picsum.photos/600/600?random=3",
+      alt: "Deep Learning 3",
+      code: "Deep Learning",
+      link: "#",
     },
     {
-      src: "/images/x.com/21.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-      code: "# 23",
+      src: "https://picsum.photos/600/600?random=4",
+      alt: "NLP Project 4",
+      code: "NLP",
+      link: "#",
     },
     {
-      src: "/images/x.com/19.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-      code: "# 23",
+      src: "https://picsum.photos/600/600?random=5",
+      alt: "Computer Vision 5",
+      code: "Vision",
+      link: "#",
     },
     {
-      src: "/images/x.com/1.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-      code: "# 23",
+      src: "https://picsum.photos/600/600?random=6",
+      alt: "Data Science 6",
+      code: "Data Science",
+      link: "#",
     },
     {
-      src: "/images/x.com/2.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-      code: "# 23",
+      src: "https://picsum.photos/600/600?random=7",
+      alt: "AI Solutions 7",
+      code: "AI Solutions",
+      link: "#",
     },
     {
-      src: "/images/x.com/3.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-      code: "# 23",
+      src: "https://picsum.photos/600/600?random=8",
+      alt: "ML Pipeline 8",
+      code: "ML Pipeline",
+      link: "#",
     },
     {
-      src: "/images/x.com/4.jpeg",
-      alt: "Illustrations by my fav AarzooAly",
-      code: "# 23",
+      src: "https://picsum.photos/600/600?random=9",
+      alt: "Development 9",
+      code: "Development",
+      link: "#",
     },
   ];
 
   return (
-    <div className="flex h-full w-full items-center justify-center overflow-hidden bg-[#f5f4f3]">
+    <div className="flex h-full w-full items-center justify-center overflow-hidden bg-black">
       <HoverExpand_001 className="" images={images} />{" "}
     </div>
   );
@@ -71,7 +80,7 @@ const HoverExpand_001 = ({
   images,
   className,
 }: {
-  images: { src: string; alt: string; code: string }[];
+  images: { src: string; alt: string; code: string; link: string }[];
   className?: string;
 }) => {
   const [activeImage, setActiveImage] = useState<number | null>(1);
@@ -122,11 +131,20 @@ const HoverExpand_001 = ({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute flex h-full w-full flex-col items-end justify-end p-4"
+                    className="absolute flex h-full w-full flex-col items-end justify-between p-4"
                   >
-                    <p className="text-left text-xs text-white/50">
-                      {image.code}
-                    </p>
+                    <div></div>
+                    <div className="flex flex-col gap-2">
+                      <p className="text-left text-xs text-white/50">
+                        {image.code}
+                      </p>
+                      <a
+                        href={image.link}
+                        className="px-3 py-1 text-xs bg-white/20 hover:bg-white/40 text-white rounded-full transition-colors"
+                      >
+                        View Project
+                      </a>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -3,7 +3,7 @@ import React from 'react'
 
 const GridCarousel = () => {
   const image = [
-  "https://i.ibb.co/6czGrjLr/IMG-7679.jpg",
+  "https://i.ibb.co/9m4zQXsv/stage.jpg",
   "https://i.ibb.co/MDqx45Gk/dsc-017.jpg",
   "https://i.ibb.co/xqmdBD2y/img5.jpg",
   "https://i.ibb.co/mFFZRsQy/IMG-7676.jpg",
