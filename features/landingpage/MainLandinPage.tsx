@@ -3,9 +3,9 @@ import Hero from "./components/Hero";
 import GridCarousel from "./components/GridCarousel";
 import FavSongs from "./components/FavSongs";
 import SuffelCard from "./components/SuffelCard";
-import MyDetails from "./components/MyDetails";
 import Contributions from "./components/Contributions";
 import XCards from "./components/XCards";
+import WorkSection from "./components/WorkSection";
 
 const MainLandinPage = () => {
   return (
@@ -26,11 +26,8 @@ const MainLandinPage = () => {
       <section>
         <SuffelCard />
       </section>
-      {/* <section>
-    <HowerExpand/>
-   </section> */}
       <section>
-        <MyDetails />
+        <WorkSection />
       </section>
       <section>
         <Contributions/>
