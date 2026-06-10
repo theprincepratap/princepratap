@@ -129,8 +129,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               "w-full h-full object-cover transition-all duration-500 group-hover:scale-110",
               isImageLoaded ? "opacity-100" : "opacity-0"
             )}
-            onLoadingComplete={() => setIsImageLoaded(true)}
-            loading="lazy"
+            onLoad={() => setIsImageLoaded(true)}
+            onError={() => setIsImageLoaded(true)}
             whileHover={{ scale: 1.1 }}
           />
 
@@ -227,7 +227,7 @@ export default function Skiper31({ className }: Skiper31Props) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6 },
     },
   };
 
