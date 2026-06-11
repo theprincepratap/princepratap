@@ -10,7 +10,7 @@ This is a modern portfolio web application built with Next.js, React, and Tailwi
 
 | Platform | Link |
 |---|---|
-| 📸 Instagram | [@itsprincepratap](https://www.instagram.com/itsprincepratap) |
+| 📸 Instagram | [@theprincepratap_](https://www.instagram.com/theprincepratap_) |
 | 🐙 GitHub | [@theprincepratap](https://github.com/theprincepratap) |
 | 💼 LinkedIn | [thprincepratap](https://www.linkedin.com/in/thprincepratap/) |
 

@@ -26,7 +26,7 @@ export default function SocialButton({
 
   const shareButtons = [
     { icon: Twitter, label: "Share on Twitter", link:"https://x.com/theprincepratap" },
-    { icon: Instagram, label: "Share on Instagram", link:"https://www.instagram.com/itsprincepratap/"  },
+    { icon: Instagram, label: "Share on Instagram", link:"https://www.instagram.com/theprincepratap_/"  },
     { icon: Linkedin, label: "Share on LinkedIn", link:"https://www.linkedin.com/in/theprincepratap/"  },
     { icon: Link2, label: "Copy link", link: "#" },
   ];
