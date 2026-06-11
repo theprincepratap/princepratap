@@ -56,6 +56,7 @@ import { cn } from "@/lib/utils";
 import { bodoniModa, inter, geist } from "@/lib/fonts";
 
 import { Skiper62 } from "@/components/ui/skiper-ui/skiper62";
+import YouTubeLiveStats from "./YouTubeLiveStats";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -237,6 +238,11 @@ const Hero = () => {
         <div className={cn("flex items-center gap-1.5", geist.className)}>
           <span className="text-white/90 text-[13px] font-medium tracking-[0.18em] uppercase">Prince</span>
           <span className="text-white/35 text-[13px] font-light tracking-[0.18em] uppercase">Kumar</span>
+        </div>
+
+        {/* Live subscribers and views */}
+        <div>
+          <YouTubeLiveStats />
         </div>
 
         {/* Menu Dropdown */}
