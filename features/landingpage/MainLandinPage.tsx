@@ -10,11 +10,11 @@ import WorkSection from "./components/WorkSection";
 const MainLandinPage = () => {
   return (
     <div className="w-full overflow-x-hidden">
-      <section>
+      <section id="home">
         <Hero />
       </section>
     
-      <section>
+      <section id="work">
         <GridCarousel />
       </section>
       {/* <section>
@@ -26,13 +26,13 @@ const MainLandinPage = () => {
       <section>
         <SuffelCard />
       </section>
-      <section>
+      <section id="projects">
         <WorkSection />
       </section>
-      <section>
+      <section id="contributions">
         <Contributions/>
       </section>
-      <section>
+      <section id="contact">
         
        <XCards/>
 

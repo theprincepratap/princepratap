@@ -96,7 +96,7 @@ function NoiseOverlay() {
 
 // ── Menu Dropdown ──────────────────────────────────────────────────────────
 const sections = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "#home" },
   { label: "Work", href: "#work" },
   { label: "Contributions", href: "#contributions" },
   { label: "Projects", href: "#projects" },
@@ -232,21 +232,23 @@ const Hero = () => {
       
       {/* ── NAVBAR ─────────────────────────────────────────────────────────── */}
       <motion.header
-        className="absolute top-0 inset-x-0 z-50 flex items-center justify-between px-8 py-7 md:px-14 md:py-9"
+        className="absolute top-0 inset-x-0 z-50 flex flex-wrap items-center justify-between px-8 py-7 md:px-14 md:py-9 gap-y-4"
         variants={fadeUp} initial="hidden" animate="visible"
       >
-        <div className={cn("flex items-center gap-1.5", geist.className)}>
+        <div className={cn("flex items-center gap-1.5 order-1 sm:order-none", geist.className)}>
           <span className="text-white/90 text-[13px] font-medium tracking-[0.18em] uppercase">Prince</span>
           <span className="text-white/35 text-[13px] font-light tracking-[0.18em] uppercase">Kumar</span>
         </div>
 
         {/* Live subscribers and views */}
-        <div>
+        <div className="order-3 sm:order-none w-full sm:w-auto flex justify-center my-1 sm:my-0">
           <YouTubeLiveStats />
         </div>
 
         {/* Menu Dropdown */}
-        <MenuDropdown />
+        <div className="order-2 sm:order-none">
+          <MenuDropdown />
+        </div>
       </motion.header>
 
       {/* ── BACKGROUND GIANT TYPOGRAPHY ────────────────────────────────────── */}

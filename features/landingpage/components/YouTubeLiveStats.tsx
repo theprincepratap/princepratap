@@ -83,9 +83,9 @@ export default function YouTubeLiveStats() {
         <span className="text-white/40 text-[8px] md:text-[9px] lowercase">subs</span>
       </a>
 
-      <div className="hidden sm:flex h-3 w-px bg-white/10" />
+      <div className="h-3 w-px bg-white/10" />
 
-      <div className="hidden sm:flex items-center gap-1 md:gap-1.5 text-white/80">
+      <div className="flex items-center gap-1 md:gap-1.5 text-white/80">
         <span className="font-semibold text-white/95">
           <NumberFlow value={stats.viewCount} format={{ notation: "standard" }} />
         </span>
