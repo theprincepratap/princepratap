@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Project {
@@ -107,9 +107,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="h-full"
     >
-      <div className="group relative h-full overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800/50 via-slate-900/50 to-slate-950/50 backdrop-blur-md border border-slate-700/30 transition-all duration-500 hover:border-red-500/50 shadow-lg hover:shadow-2xl hover:shadow-red-500/20">
+      <div className="group relative h-full flex flex-col rounded-2xl bg-gradient-to-br from-slate-800/50 via-slate-900/50 to-slate-950/50 backdrop-blur-md border border-slate-700/30 transition-all duration-500 hover:border-red-500/50 shadow-lg hover:shadow-2xl hover:shadow-red-500/20">
         {/* Animated gradient border on hover */}
         <motion.div
           className="absolute inset-0 rounded-2xl pointer-events-none"
@@ -159,14 +158,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
 
         {/* Content Container */}
-        <div className="relative p-6 sm:p-8 flex flex-col h-full">
+        <div className="relative p-6 sm:p-8 flex flex-col flex-grow">
           {/* Title */}
           <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 line-clamp-2 group-hover:text-red-400 transition-colors duration-300">
             {project.title}
           </h3>
 
           {/* Description */}
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-5 line-clamp-3 flex-grow">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-5 flex-grow line-clamp-3">
             {project.description}
           </p>
 
@@ -186,25 +185,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-3 pt-4 border-t border-slate-700/50">
+          <div className="flex gap-3 pt-4 border-t border-slate-700/50 mt-auto">
             <motion.a
               href={project.liveLink}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold rounded-lg transition-all duration-300 text-sm group/btn"
-              whileHover={{ y: -2, boxShadow: "0 10px 25px -5px rgb(239, 68, 68, 0.3)" }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold rounded-lg transition-all duration-300 text-sm"
+              whileHover={{ y: -2, boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <ExternalLink className="w-4 h-4 group-hover/btn:rotate-45 transition-transform" />
-              <span className="hidden sm:inline">View</span>
+              <ExternalLink className="w-4 h-4 shrink-0" />
+              <span>Live Preview</span>
             </motion.a>
 
             <motion.a
               href={project.githubLink}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-slate-700/80 to-slate-800/80 hover:from-slate-600/80 hover:to-slate-700/80 text-slate-100 font-semibold rounded-lg border border-slate-600/50 hover:border-green-500/50 transition-all duration-300 text-sm group/btn"
-              whileHover={{ y: -2, boxShadow: "0 10px 25px -5px rgb(34, 197, 94, 0.2)" }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-800/80 hover:bg-slate-700/80 text-slate-100 font-semibold rounded-lg border border-slate-600/50 hover:border-green-500/60 transition-all duration-300 text-sm"
+              whileHover={{ y: -2, boxShadow: "0 10px 25px -5px rgba(34, 197, 94, 0.25)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <Github className="w-4 h-4 group-hover/btn:rotate-12 transition-transform" />
-              <span className="hidden sm:inline">Code</span>
+              <Github className="w-4 h-4 shrink-0" />
+              <span>GitHub</span>
             </motion.a>
           </div>
         </div>
@@ -218,9 +221,6 @@ interface Skiper31Props {
 }
 
 export default function Skiper31({ className }: Skiper31Props) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const headingVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -234,33 +234,6 @@ export default function Skiper31({ className }: Skiper31Props) {
   const titleVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { delay: 0.2, duration: 0.6 } },
-  };
-
-  const checkScroll = () => {
-    if (containerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-    }
-  };
-
-  useEffect(() => {
-    checkScroll();
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("scroll", checkScroll);
-      return () => container.removeEventListener("scroll", checkScroll);
-    }
-  }, []);
-
-  const scroll = (direction: "left" | "right") => {
-    if (containerRef.current) {
-      const scrollAmount = 400;
-      containerRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
   };
 
   return (
@@ -310,52 +283,16 @@ export default function Skiper31({ className }: Skiper31Props) {
           </motion.p>
         </motion.div>
 
-        {/* Horizontal Scroll Container */}
-        <div className="relative group">
-          {/* Left Scroll Button */}
-          <motion.button
-            onClick={() => scroll("left")}
-            className={cn(
-              "absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white transition-all duration-300 -translate-x-16 group-hover:translate-x-0",
-              !canScrollLeft && "opacity-30 cursor-not-allowed"
-            )}
-            disabled={!canScrollLeft}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </motion.button>
-
-          {/* Projects Horizontal Scroll */}
-          <div
-            ref={containerRef}
-            className="flex gap-6 sm:gap-8 overflow-x-auto scroll-smooth pb-4"
-            style={{
-              scrollBehavior: "smooth",
-              scrollbarWidth: "thin",
-              scrollbarColor: "#ef4444 #1e293b",
-            }}
-          >
-            {PROJECTS.map((project, index) => (
-              <div key={project.id} className="flex-shrink-0 w-full sm:w-96 md:w-[450px]">
-                <ProjectCard project={project} index={index} />
-              </div>
-            ))}
-          </div>
-
-          {/* Right Scroll Button */}
-          <motion.button
-            onClick={() => scroll("right")}
-            className={cn(
-              "absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white transition-all duration-300 translate-x-16 group-hover:translate-x-0",
-              !canScrollRight && "opacity-30 cursor-not-allowed"
-            )}
-            disabled={!canScrollRight}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChevronRight className="w-6 h-6" />
-          </motion.button>
+        {/* Projects — single-row horizontal scroll, hidden scrollbar */}
+        <div
+          className="flex gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {PROJECTS.map((project, index) => (
+            <div key={project.id} className="flex-shrink-0 w-[340px] sm:w-[400px] md:w-[440px] h-[660px]">
+              <ProjectCard project={project} index={index} />
+            </div>
+          ))}
         </div>
 
         {/* View All CTA */}

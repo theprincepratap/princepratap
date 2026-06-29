@@ -4,6 +4,7 @@ import GridCarousel from "./components/GridCarousel";
 import FavSongs from "./components/FavSongs";
 import SuffelCard from "./components/SuffelCard";
 import Contributions from "./components/Contributions";
+import ResumeSection from "./components/ResumeSection";
 import XCards from "./components/XCards";
 import WorkSection from "./components/WorkSection";
 
@@ -31,6 +32,9 @@ const MainLandinPage = () => {
       </section>
       <section id="contributions">
         <Contributions/>
+      </section>
+      <section id="resume">
+        <ResumeSection/>
       </section>
       <section id="contact">
         
