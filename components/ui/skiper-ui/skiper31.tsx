@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -221,6 +221,13 @@ interface Skiper31Props {
 }
 
 export default function Skiper31({ className }: Skiper31Props) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = useCallback((direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const amount = 456; // ~one card width
+    scrollRef.current.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" });
+  }, []);
 
   const headingVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -274,7 +281,6 @@ export default function Skiper31({ className }: Skiper31Props) {
           >
             Featured <span className="bg-gradient-to-r from-red-500 via-red-400 to-green-500 bg-clip-text text-transparent">Projects</span>
           </motion.h2>
-
           <motion.p
             className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed"
             variants={titleVariants}
@@ -283,17 +289,53 @@ export default function Skiper31({ className }: Skiper31Props) {
           </motion.p>
         </motion.div>
 
-        {/* Projects — single-row horizontal scroll, hidden scrollbar */}
-        <div
-          className="flex gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {PROJECTS.map((project, index) => (
-            <div key={project.id} className="flex-shrink-0 w-[340px] sm:w-[400px] md:w-[440px] h-[660px]">
-              <ProjectCard project={project} index={index} />
-            </div>
-          ))}
+        {/* Projects — carousel with floating left/right arrows */}
+        <div className="relative">
+          {/* Left floating arrow */}
+          <motion.button
+            onClick={() => scroll("left")}
+            aria-label="Scroll projects left"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white border border-red-400/30 transition-all duration-200 shadow-lg hover:shadow-red-500/40"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </motion.button>
+
+          {/* Right floating arrow */}
+          <motion.button
+            onClick={() => scroll("right")}
+            aria-label="Scroll projects right"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white border border-red-400/30 transition-all duration-200 shadow-lg hover:shadow-red-500/40"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </motion.button>
+
+          {/* Left edge fade hint */}
+          <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-slate-950/70 to-transparent pointer-events-none z-10" />
+          {/* Right edge fade hint */}
+          <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-slate-950/70 to-transparent pointer-events-none z-10" />
+
+          {/* Scroll strip */}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto [&::-webkit-scrollbar]:hidden px-6"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {PROJECTS.map((project, index) => (
+              <div key={project.id} className="flex-shrink-0 w-[340px] sm:w-[400px] md:w-[440px] h-[660px]">
+                <ProjectCard project={project} index={index} />
+              </div>
+            ))}
+          </div>
         </div>
+
 
         {/* View All CTA */}
         <motion.div
