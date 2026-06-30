@@ -54,14 +54,42 @@ function YouTubeCard({ video }: { video: VideoData }) {
   );
 }
 
+const CACHE_KEY = "yt_latest_videos";
+const CACHE_TTL = 1000 * 60 * 60; // 1 hour
+
 const XCards = () => {
   const [videos, setVideos] = useState<VideoData[]>([]);
 
   useEffect(() => {
+    // Try loading from localStorage cache first (instant render)
+    try {
+      const cached = localStorage.getItem(CACHE_KEY);
+      if (cached) {
+        const { data, timestamp } = JSON.parse(cached);
+        if (Date.now() - timestamp < CACHE_TTL && Array.isArray(data)) {
+          setVideos(data.slice(0, 3));
+        }
+      }
+    } catch {}
+
+    // Always fetch fresh data in the background
     fetch("/api/latest-video")
       .then((r) => r.json())
-      .then((d) => { if (Array.isArray(d)) setVideos(d.slice(0, 3)); })
-      .catch(() => {});
+      .then((d) => {
+        if (Array.isArray(d)) {
+          setVideos(d.slice(0, 3));
+          // Save to localStorage for next page load
+          try {
+            localStorage.setItem(
+              CACHE_KEY,
+              JSON.stringify({ data: d, timestamp: Date.now() })
+            );
+          } catch {}
+        }
+      })
+      .catch(() => {
+        // API failed — already showing cached data from localStorage (if any)
+      });
   }, []);
 
   return (
