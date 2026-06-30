@@ -23,10 +23,10 @@ const PROJECTS: Project[] = [
     description:
       "LLM-powered interview system with OpenAI APIs for dynamic question generation, answer evaluation, and personalized feedback. Features structured evaluation pipelines analyzing technical accuracy, fluency, sentiment, and STAR-format responses with real-time speech intelligence.",
     image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      "https://i.ibb.co/Q3BNHyB4/interviewx.png",
     technologies: ["OpenAI API", "FastAPI", "Python", "React", "Prompt Engineering"],
     liveLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/theprincepratap/IntervueX",
     category: "AI/LLM",
   },
   {
@@ -35,10 +35,10 @@ const PROJECTS: Project[] = [
     description:
       "End-to-end AI pipeline automating image processing for 10+ government exams. Integrated U2-Net for background removal with OpenCV fallback, built rule-based validation engine with face detection and multi-face rejection for compliance.",
     image:
-      "https://images.unsplash.com/photo-1526374965328-7f5ae4e8a0c5?w=600&h=400&fit=crop",
+      "https://i.ibb.co/kVNGsd34/govimageresizer.png",
     technologies: ["Django", "React", "OpenCV", "U2-Net", "Python"],
     liveLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/theprincepratap/-AI-Powered-Government-Exam-Photo-Signature-Processing-System",
     category: "Computer Vision",
   },
   {
@@ -47,47 +47,47 @@ const PROJECTS: Project[] = [
     description:
       "Real-time face recognition system using ResNet-based embeddings with multi-face detection. Implemented behavioral analytics using Eye Aspect Ratio (EAR) and head pose estimation. Designed liveness detection achieving >95% accuracy with scalable processing pipeline.",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=400&fit=crop",
+      "https://i.ibb.co/NdVmhLbD/aiattendencesystem.png",
     technologies: ["ResNet", "Python", "OpenCV", "Face Recognition", "ML"],
     liveLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/theprincepratap/Real-Time-Classroom-Attendance-and-Student-Engagement-Tracking-System",
     category: "AI/ML",
   },
   {
     id: 4,
-    title: "Advanced Analytics Dashboard",
+    title: "LocalServiceFinder — MERN Service Platform",
     description:
-      "Comprehensive data analytics platform with SQL-based data extraction, preprocessing pipelines, and exploratory data analysis. Built interactive visualizations using Python libraries for actionable insights from complex datasets.",
+      "MERN-based platform connecting customers with local service providers (electricians, plumbers, cleaners). Features geospatial search with MongoDB + PostgreSQL hybrid architecture, real-time tracking via Socket.IO, Razorpay payments, and DSA-driven job allocation using heaps, queues & graph algorithms.",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    technologies: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib"],
+      "https://i.ibb.co/fs6jZsP/localworkerfinder.png",
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.IO", "Razorpay"],
     liveLink: "#",
-    githubLink: "#",
-    category: "Data Science",
+    githubLink: "https://github.com/theprincepratap/Local-Service-Finder",
+    category: "Full Stack",
   },
   {
     id: 5,
-    title: "REST API Infrastructure",
+    title: "CampusConnect — College Community Platform",
     description:
-      "Scalable backend infrastructure with FastAPI and async programming (asyncio). Designed robust REST APIs with efficient request handling, concurrent processing, and production-ready deployment on AWS with Docker containerization.",
+      "Full-stack MVC web app connecting college students via profile discovery, filtering, and near real-time chat (AJAX polling). Built with Java Servlets as controllers, JSP + JSTL views, JDBC DAOs, and PostgreSQL. Features secure auth, profile photos, unread message badges, and session-based access control.",
     image:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
-    technologies: ["FastAPI", "Python", "Docker", "AWS", "SQL"],
+      "https://i.ibb.co/bRbLgQ0Q/campusconnect.png",
+    technologies: ["Java Servlets", "JSP", "PostgreSQL", "JDBC", "Apache Tomcat"],
     liveLink: "#",
     githubLink: "#",
-    category: "Backend",
+    category: "Full Stack",
   },
   {
     id: 6,
-    title: "Machine Learning Model Suite",
+    title: "AI Resume Builder with ATS Optimization",
     description:
-      "Comprehensive ML solutions built with PyTorch, TensorFlow, and Scikit-learn. Implemented classification, regression, and deep learning models with optimization techniques, hyperparameter tuning, and evaluation metrics for real-world applications.",
+      "Full-stack resume builder with real-time ATS scoring (0–100), SpaCy NLP keyword extraction, TF-IDF job description matching, and grammar analysis. Features 5 professional templates, PDF/DOCX export, JWT auth, and multi-resume dashboard. Built with React + Redux frontend and Django REST backend.",
     image:
-      "https://images.unsplash.com/photo-1555949519-2f4ae925cda7?w=600&h=400&fit=crop",
-    technologies: ["PyTorch", "TensorFlow", "Scikit-learn", "Python", "Keras"],
+      "https://i.ibb.co/LmmfJWy/resumebuilder.png",
+    technologies: ["React", "Django", "SpaCy", "Redux", "PostgreSQL", "Python"],
     liveLink: "#",
     githubLink: "#",
-    category: "Machine Learning",
+    category: "AI/NLP",
   },
 ];
 
