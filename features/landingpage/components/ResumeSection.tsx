@@ -82,7 +82,7 @@ const ResumeSection = () => {
 
             <div className="p-4 md:p-6">
               <Image
-                src="https://i.ibb.co/LmmfJWy/resumebuilder.png"
+                src="/resume.png"
                 alt="Prince Pratap Resume Preview"
                 width={900}
                 height={1200}
