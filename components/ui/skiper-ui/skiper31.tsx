@@ -100,6 +100,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // Fix: browser-cached images fire onLoad before React hydrates the handler.
+  // After mount, check if the image is already complete (cached) and reveal it.
+  React.useEffect(() => {
+    if (imgRef.current?.complete) {
+      setIsImageLoaded(true);
+    }
+  }, []);
 
   return (
     <motion.div
@@ -122,6 +131,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         {/* Image Container */}
         <div className="relative h-56 sm:h-64 overflow-hidden">
           <motion.img
+            ref={imgRef}
             src={project.image}
             alt={project.title}
             className={cn(
