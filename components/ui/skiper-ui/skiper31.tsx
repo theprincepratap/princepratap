@@ -14,6 +14,7 @@ interface Project {
   liveLink: string;
   githubLink: string;
   category: string;
+  liveDisabled?: boolean;
 }
 
 const PROJECTS: Project[] = [
@@ -26,6 +27,7 @@ const PROJECTS: Project[] = [
       "https://i.ibb.co/Q3BNHyB4/interviewx.png",
     technologies: ["OpenAI API", "FastAPI", "Python", "React", "Prompt Engineering"],
     liveLink: "#",
+    liveDisabled: true,
     githubLink: "https://github.com/theprincepratap/IntervueX",
     category: "AI/LLM",
   },
@@ -37,7 +39,7 @@ const PROJECTS: Project[] = [
     image:
       "https://i.ibb.co/kVNGsd34/govimageresizer.png",
     technologies: ["Django", "React", "OpenCV", "U2-Net", "Python"],
-    liveLink: "#",
+    liveLink: "https://ai-photo-signature-resizer.vercel.app/",
     githubLink: "https://github.com/theprincepratap/-AI-Powered-Government-Exam-Photo-Signature-Processing-System",
     category: "Computer Vision",
   },
@@ -50,6 +52,7 @@ const PROJECTS: Project[] = [
       "https://i.ibb.co/NdVmhLbD/aiattendencesystem.png",
     technologies: ["ResNet", "Python", "OpenCV", "Face Recognition", "ML"],
     liveLink: "#",
+    liveDisabled: true,
     githubLink: "https://github.com/theprincepratap/Real-Time-Classroom-Attendance-and-Student-Engagement-Tracking-System",
     category: "AI/ML",
   },
@@ -62,6 +65,7 @@ const PROJECTS: Project[] = [
       "https://i.ibb.co/fs6jZsP/localworkerfinder.png",
     technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.IO", "Razorpay"],
     liveLink: "#",
+    liveDisabled: true,
     githubLink: "https://github.com/theprincepratap/Local-Service-Finder",
     category: "Full Stack",
   },
@@ -74,6 +78,7 @@ const PROJECTS: Project[] = [
       "https://i.ibb.co/bRbLgQ0Q/campusconnect.png",
     technologies: ["Java Servlets", "JSP", "PostgreSQL", "JDBC", "Apache Tomcat"],
     liveLink: "#",
+    liveDisabled: true,
     githubLink: "#",
     category: "Full Stack",
   },
@@ -86,6 +91,7 @@ const PROJECTS: Project[] = [
       "https://i.ibb.co/LmmfJWy/resumebuilder.png",
     technologies: ["React", "Django", "SpaCy", "Redux", "PostgreSQL", "Python"],
     liveLink: "#",
+    liveDisabled: true,
     githubLink: "#",
     category: "AI/NLP",
   },
@@ -196,17 +202,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
           {/* Action Buttons */}
           <div className="flex gap-3 pt-4 border-t border-slate-700/50 mt-auto">
-            <motion.a
-              href={project.liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold rounded-lg transition-all duration-300 text-sm"
-              whileHover={{ y: -2, boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ExternalLink className="w-4 h-4 shrink-0" />
-              <span>Live Preview</span>
-            </motion.a>
+            {project.liveDisabled ? (
+              <div
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-800/60 text-slate-500 font-semibold rounded-lg border border-slate-700/40 cursor-not-allowed select-none text-sm"
+                title="No live preview available"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 shrink-0 opacity-60">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                <span>No Preview</span>
+              </div>
+            ) : (
+              <motion.a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-semibold rounded-lg transition-all duration-300 text-sm"
+                whileHover={{ y: -2, boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.4)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ExternalLink className="w-4 h-4 shrink-0" />
+                <span>Live Preview</span>
+              </motion.a>
+            )}
 
             <motion.a
               href={project.githubLink}
